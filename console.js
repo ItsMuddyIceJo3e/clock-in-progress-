@@ -2,26 +2,38 @@ console.log("hello");
 
 function updateCustomClock() {
   const now = new Date();
-  let hour = now.getHours();
-  let minute = now.getMinutes();
-  let second = now.getSeconds();
-  const ampm = hour >= 12 ? 'pm':'am';
-  hour = hour % 12 || 12;
-  document.getElementById('live-clock').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-}
-  
-  const now = new Date();
-  const timeString = new Intl.DateTimeFormat('en-US', {
+  document.getElementById('live-clock').textContent = now.toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
-    hour12: true,
-    timeZoneName: 'short'
+    hour12: true
   });
+}
 
-  document.getElementById('live-clock').textContent = timeString.format(now);
+const now = new Date();
+const timeString = new Intl.DateTimeFormat('en-US', {
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: true,
+  timeZoneName: 'short'
+}).format(now);
 
-  updateCustomClock(); // initial call to display clock immediately
+document.getElementById('live-clock').textContent = timeString;
 
-   setInterval(updateCustomClock, 1000);
+const blackButton = document.createElement('button');
+blackButton.textContent = 'Change Background Color';
+blackButton.addEventListener('click', () => {
+  document.body.style.backgroundColor = 'black';
+});
 
+const whiteButton = document.createElement('button');
+whiteButton.textContent = 'Change Background Color';
+whiteButton.addEventListener('click', () => {
+  document.body.style.backgroundColor = 'white';
+});
+
+document.body.append(blackButton, whiteButton);
+
+updateCustomClock();
+setInterval(updateCustomClock, 1000);
