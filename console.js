@@ -21,19 +21,21 @@ const timeString = new Intl.DateTimeFormat('en-US', {
 
 document.getElementById('live-clock').textContent = timeString;
 
-const blackButton = document.createElement('button');
-blackButton.textContent = 'Change Background Color';
-blackButton.addEventListener('click', () => {
+const button = document.getElementById('button');
+
+function firstaction() {
   document.body.style.backgroundColor = 'black';
-});
+}
 
-const whiteButton = document.createElement('button');
-whiteButton.textContent = 'Change Background Color';
-whiteButton.addEventListener('click', () => {
+function secondaction() {
   document.body.style.backgroundColor = 'white';
-});
+}
 
-document.body.append(blackButton, whiteButton);
+if (button) {
+  button.addEventListener('click', firstaction);
+  button.addEventListener('click', secondaction);
+}
 
 updateCustomClock();
 setInterval(updateCustomClock, 1000);
+
