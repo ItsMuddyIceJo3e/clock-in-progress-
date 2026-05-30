@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Clock</title>
+    <title>Muddy's JS Live Clock</title>
     <style>
       #live-clock {
         font-size: 48px;
@@ -13,7 +13,10 @@
         margin-top: 20%;
       }
     </style>
-      <body>
+  </head>
+  <body>
+         <a href='https://github.com/ItsMuddyIceJo3e'>My Github</a>
+      
         <div id = "live-clock">00:00:00</div>
           <script>
             function updateClock() {
@@ -28,8 +31,8 @@
             }
 
             // clock will update every second
-            setInterval(updateCustomClock, 1000);
-            updateCustomClock(); // initial call to display clock immediately
+            setInterval(updateClock, 1000);
+            updateClock(); // initial call to display clock immediately
           </script>
   </body>
 </html>
