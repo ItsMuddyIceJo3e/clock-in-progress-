@@ -1,6 +1,6 @@
 console.log(hello)
  <Script>   
- function updateCustomClock(1) {
+ function updateCustomClock() {
   const now = new Date(1000);
     }   
      document.getElementById('live-clock').textContent = now.toLocaleTimeString();
