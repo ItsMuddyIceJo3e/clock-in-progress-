@@ -9,4 +9,8 @@ console.log(hello)
 
             const ampm = hours >= 12 ? 'pm':'am';
             hours = hours % 12;
+
+              let hours = now.getHours();
+              let minutes = now.getMinutes();
+              let seconds = now.getSeconds();
           
