@@ -17,6 +17,21 @@
   <body>
       <button onclick="toggleBackgroundColor()">Change Background Color</button> 
          <a href='https://github.com/ItsMuddyIceJo3e'>My Github</a>
+
+         <select id="timezone-select" onchange="updateClock()">
+            <option value="default">Default Timezone</option>
+            <option value="UTC">UTC</option>
+            <option value="America/New_York">New York (EST)</option>
+            <option value="Europe/London">London (GMT)</option>
+            <option value="Asia/Tokyo">Tokyo (JST)</option>
+            <option value="Australia/Sydney">Sydney (AEST)</option>
+            <option value="America/Los_Angeles">Los Angeles (PST)</option>
+            <option value="Europe/Paris">Paris (CET)</option>
+            <option value="Asia/Beijing">Beijing (CST)</option>
+            <option value="America/Chicago">Chicago (CST)</option>
+            <option value="Europe/Berlin">Berlin (CET)</option>
+            <option value="America/Honolulu">Honolulu (HST)</option>  
+          </select>
          
 
       
@@ -34,12 +49,14 @@
 
             function updateClock() {
               const now = new Date();
+              const selectedTimezone = document.getElementById('timezone-select').value;
               const timeString = now.toLocaleTimeString('en-US', {
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
                 hour12: true,
-                timeZoneName: 'short'
+                timeZoneName: 'short',
+                timeZone: selectedTimezone
               });
               document.getElementById('live-clock').textContent = timeString;   
                               // clock will update every second         
